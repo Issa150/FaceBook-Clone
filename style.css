@@ -19,6 +19,169 @@ body{
     background: var(--body-clr);
     transition: background 0.3s;
 }
+/* ------------------------- new post wrapers------------------- */
+/* ---------------------------------------------------------------- */
+/* -----------Modal ------------------*/
+.new-post-wrapper{
+    position: absolute;
+    /* width: fit-content;
+    height: fit-content; */
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   border: none;
+   border-radius: 10px;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+.new-post-wrapper::backdrop{
+    background: hsla(60, 0%, 100%, 0.6); 
+}
+.new-post-cntr{
+    width: 500px;
+    min-height: 490px;
+    max-height: 570px;
+    background: #fff;
+    /* display: flex; */
+    padding: 1em;
+}
+.n-post-header{
+    border-bottom: 1px solid grey;
+    position: relative;
+}
+.n-post-header img{
+    width: 28px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.p-title-newPost{
+    text-align: center;
+    padding: 1em;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.n-post-body{
+    width: 100%;
+    padding-top: 1em;
+}
+.n-post-body button{
+    background: hsl(240, 72%, 55%);
+    /* display: block; */
+    width: 100%;
+    padding: 1em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+.new-post-content-wrapper{
+    /* border: 3px solid violet; */
+    height: 130px;
+    max-height: 250px;
+    overflow: auto;
+}
+.n-post-body textarea{
+    width: 100%;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+/* ------ adding imag to modul------- */
+.new-img-holder{
+    width: 90%;
+    min-height: 170px;
+    height: 200px;
+    max-height: 600px;
+    background: lightgrey;
+    margin: 10px;
+    margin-inline: auto;
+    display: none;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+.new-img-holder:hover{
+ background: rgb(228, 228, 228);
+}
+.holder_wrapper{
+    height: 100%;
+    width: 100%;
+}
+.holder_wrapper img{
+    display: none;
+}
+.holder_wrapper label{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.holder_wrapper label img{
+    /* display: block; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 5;
+}
+.holder_wrapper svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: rgb(100, 100, 100);
+    width: 40px;
+}
+.new-img-holder input{
+    display: none;
+}
+/* ------------------------- */
+.add_media{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    margin: 1em 0;
+}
+.add_post_icons{
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+.add_post_icons img{
+    width: 28px;
+
+}
+.add_post_icons img:last-child{
+    width: 17px;
+}
+.icon_wrapper_add{
+    width: 28px;
+}
+.icon_wrapper_add input{
+    display: none;
+}
+/* .icon_wrapper_add label{
+    width: 100%;
+    border: 2px solid green;
+} */
+.icon_wrapper_add img{
+    width: 100% !important;
+}
+.img-new-post{
+    object-fit: cover;
+    max-height: 100%;
+    margin-inline: auto;
+    display: block;
+}
+
+/* ------------------ new post wrapers ENDED!!!----------------------- */
 nav{
     display: flex;
     align-items: center;
@@ -27,7 +190,7 @@ nav{
     padding: 5px 5%;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 10;
 }
 .logo{
     width: 160px;
@@ -89,27 +252,31 @@ nav{
 .container{
     display: flex;
     justify-content: space-between;
-    padding: 13px 5%;
+    padding: 0 5%;
+    /* 13px */
+    margin-top: 15px;
+}
+.side_bars{
+    top: 70px;
 }
 .left-sidebar{
     flex-basis: 25%;
     position: sticky;
-    top: 100px;
     align-self: flex-start;
 }
 .right-sidebar{
     flex-basis: 25%;
     position: sticky;
-    top: 100px;
+    /* top: 100px; */
     align-self: flex-start;
     background: var(--bg-clr);
-    padding: 20px;
+    padding: 20px 20px 8px 20px;
     border-radius: 4px;
     color: #626262;
+    transform: translateY(-5px);
 }
 .main-content{
     flex-basis: 47%;
-
 }
 .imp-links a, .shortcut-links a{
     text-decoration: none;
@@ -142,14 +309,15 @@ nav{
 .sidebar-title{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
     margin-bottom: 18px;
 }
 .right-sidebar h4{
     font-weight: 600;
     font-size: 16px;
+    margin-right: auto;
 }
-.sidebar-title a {
+.sidebar-title p{
     text-decoration: none;
     color: #1876f2;
     font-size: 12px;
@@ -169,7 +337,7 @@ nav{
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0 , 0, 0.1);
+    box-shadow: 0 2px 7px 2px rgba(0, 0 , 0, 0.3);
 }
 .event p {
     font-size: 12px;
@@ -194,10 +362,54 @@ nav{
     margin-bottom: 20px;
     border-radius: 4px;
 }
+.cntr_conversation{
+    position: relative;
+} 
+.cntr_conversation .conv_head{
+    position: sticky;
+    z-index: 1;
+    top:0;
+    transform: translateY(-1px);
+    background: var(--bg-clr);
+}
+.cntr_conversation .conv_body{
+    overflow-y: auto;
+    max-height: 190px;
+    transition: 1s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.conv_body.conv_body_closed{
+    max-height: 0px;
+}
+.sidebar-title div{
+    width: 40%;
+    display: flex;
+    position: relative;
+}
+.sidebar-title div input{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: transparent;
+    background: hsla(214, 89%, 52%, 0.07);
+    border-radius: 50px;
+    padding: 3px 5px;
+}
+.sidebar-title div input:focus{
+    border-bottom: 2px solid var(--nav-clr);
+    background: hsla(214, 89%, 52%, 0.17);
+}
+
+.cntr_conversation .sidebar-title img{
+    width: 12px;
+    position: absolute;
+    right: 7px;
+    top: 5px;
+
+}
 .online-list{
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 }
 .online-list .online img{
@@ -213,6 +425,26 @@ nav{
     top: unset;
     bottom: 5px;
 }
+.online-list_hide{
+    animation: animHide 0.5s forwards;
+}
+@keyframes animHide {
+    0%   {
+        opacity: 1;
+        transform: translateX(-30px);
+    }
+    25%   {
+        opacity: 0.8;
+        
+        transform: rotate(-25deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-120%);
+        transform: rotate(-90deg);
+        display: none;
+    }
+  }
 /* Main Section */
 
 .story-gallery{
@@ -740,3 +972,40 @@ nav{
     }
 }
 
+/* media query for new post  */
+@media (max-width:700px){
+    /* body{
+        overflow: hidden;
+    } */
+    .new-post-wrapper{
+        position: fixed;
+        z-index: 12;
+        width: 100vw;
+        height: 100vh;
+        border: 1px solid green;
+    }
+    .new-post-cntr{
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+        border: 1px solid red;
+        /* display: grid;
+        grid-template-rows: repeat(9, 1fr);
+        grid-template-columns: repeat(5, 1fr); */
+    }
+
+    .n-post-body{
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        background: #ff00006e;
+    }
+    .add_media{
+        justify-content: space-around;
+    }
+    .add_media p{
+        display: none;
+    }
+}
