@@ -27,6 +27,21 @@ else if(localStorage.getItem("theme") == "dark"){
     localStorage.setItem("theme", "light");
 }
 // --------------------------------------------
+// -----reading the sesion storage to render the user img and username---
+//  این بخش رو خوب بررسی کن هنوز انحام ندادی//////
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    // Check if user data is saved in sessionStorage
+    var userData = sessionStorage.getItem("my infos =>");
+    if (userData) {
+      userData = JSON.parse(userData);
+      // Set the profile image and username
+      var profileImg = document.getElementById("profile-img");
+      profileImg.src = userData.profileImgUrl;
+      var username = document.getElementById("username");
+      username.innerHTML = userData.username;
+    }
+  });
 // ///////////////////////////////////////:::::::
 
 // -----Opening modal of Making new post---

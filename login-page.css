@@ -1,0 +1,280 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: hsl(216,20%,95.1%);
+    height: 100%;
+}
+img,label{
+    display: block;
+}
+/* ----------------------   Starting page styles  ------------------ */
+
+.wrapper{
+    width: min(100% - 3em,1000px);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em;
+    height: 90vh;
+    gap:1em;
+    font-family: sans-serif;
+}
+.sections{
+    flex-basis: min(50% - 1em,50%);
+}
+.sections h1{
+    color: #1877F2;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 3.4rem;
+}
+.sections p{
+    font-size: 1.6rem;
+}
+/* ----------------------   sign in form styles  ------------------ */
+.sections > form{
+    background:#fff;
+    width: clamp(330px,100%,400px);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(128, 128, 128, 0.744);
+    padding: 1em;
+    text-align: center;
+    margin-inline: auto;
+}
+form#sign_in > * , .body-sign_up > *{
+    border:none;
+    margin-bottom: 1em;
+}
+.hr{
+    background: grey;
+    height: 1px;
+}
+form > input, form > label input, .body-sign_up > input, .mid_inputs input, .birthday input{
+    padding: .5em .7em;
+    font-size: 1.2rem;
+    width: 100%;
+    border:1px solid rgb(192, 192, 192);
+    outline: transparent;
+    border-radius: 7px;
+}
+::placeholder {
+    opacity: .7;
+}
+
+form#sign_in  #label_pass {
+    position: relative;
+}
+form#sign_in > label img{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    color: red;
+}
+
+.btn_primery, .btn_secoundary{
+    display: block;
+    width: 100%;
+    background: #1877F2;
+    color: #fff;
+    padding: .8em;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border-radius: 7px;
+    border: none;
+    outline: transparent;
+}
+.btn_primery:hover, .btn_secoundary:hover{
+    background-image: linear-gradient(to top,hsla(0, 0%, 0%, 0.4),transparent);
+}
+.btn_secoundary{
+    background: #42B72A;
+    width: 60%;
+    margin-inline: auto;
+    margin: 1em auto;
+}
+form a{
+    text-decoration: none;
+    color: #1877F2;
+    display: block;
+    margin: 1em;
+    font-size: 1rem;
+}
+form a:hover{
+    text-decoration: underline;
+}
+.result{
+    font-size: 15px !important;
+    color: darkred;
+}
+/* -------------------------- All  Sign up styles --------------------- */
+#modal{
+    width: 420px;
+    box-shadow: 0 0 7px hsl(0, 10%, 50%, .4);
+    background: #fff;
+    position: relative;
+    border: none;
+    outline: transparent;
+    margin-inline: auto;
+    margin-top: 4em;
+    overflow: hidden;
+}
+#modal::backdrop{
+    background: hsla(60, 0%, 100%, 0.6); 
+}
+.inner_modal{
+    width: 100%;
+    display: inline-block;
+}
+#modal > svg{
+    width: 30px;
+    fill: grey;
+    position:  fixed;
+    top: 15px;
+    right: 15px;
+}
+.head-sign_up{
+    padding: 1em;
+    font-size: 1.2rem;
+    border-bottom: 1px solid grey;
+}
+.head-sign_up h2{
+    font-size: 1.9rem;
+    margin-bottom: .4em;
+}
+.head-sign_up p{
+    font-size: .9rem;
+    color:grey
+}
+/* ---------  Sign up form  -------------- */
+.body-sign_up{
+    padding: 1em;
+}
+.body-sign_up form > * {
+    margin-bottom: 1em;
+}
+/* --------------- */
+.mid_inputs{
+    display: flex;
+    justify-content: space-between;
+}
+.mid_inputs input{
+    width: 48%;
+    border-radius: 7px;
+}
+.gender{
+    display: flex;
+}
+.body-sign_up span {
+    background-color: #fff;
+    border: 1px solid #ccd0d5;
+    border-radius: 7px;
+    display: inline-block;
+    flex: 1 0 auto;
+    height: 36px;
+    margin: 8px 6px 6px;
+    padding: 0;
+    position: relative;
+}
+.body-sign_up span label {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 36px;
+    padding: 0 28px 0 10px;
+    width: 100%;
+}
+.body-sign_up span input{
+    height: 35px;
+    margin: 0;
+    position: absolute;
+    right: 7px;
+    top: 1px;
+}
+.body-sign_up p{
+    font-size: 7px;
+    color:grey;
+}
+
+/* ---------------------  ready to left trznsition ------------------- */
+.inner_wrapper{
+    width: 200%;
+    display: flex;
+    transition: 1s cubic-bezier(0.83, 0, 0.17, 1);;
+}
+.inner_modal, .profile-img-wrapper{
+    width: 50%;
+    min-height: 100%;
+}
+.profile-img-wrapper{
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.body-sign_up.img-ptofile > *, .btns .btn_secoundary{
+    margin-bottom: 0;
+}
+.btns button{
+    width: 60%;
+    text-align: center;
+    margin-inline: auto;
+}
+.img-ptofile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.img-ptofile label{
+    margin-top: 1em;
+    width: 50%;
+    margin-inline: auto;
+    aspect-ratio: 1/1;
+    background: lightgray;
+    border-radius: 50%;
+    position: relative;
+}
+.img-ptofile label img{ 
+    display: none;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+.img-ptofile svg{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 60px;
+    color: grey;
+}
+.img-ptofile input{
+    display: none;
+}
+/* ///////////   Responsive    //////////////// */
+@media (max-width:800px) {
+    .wrapper{
+        flex-direction: column;
+        justify-content: center;
+        gap: 2em;
+    }
+    .sections{
+        width: clamp(330px,100%,430px);
+        text-align: center;
+    }
+    .sections:has(h1){
+        max-height:150px;
+    }
+    .sections p{
+        width: 100%;
+        font-size: 1.4rem;
+        margin-inline: auto;
+    }
+}
