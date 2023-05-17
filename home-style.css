@@ -192,6 +192,9 @@ nav{
     top: 0;
     z-index: 10;
 }
+nav.nav-profile{
+    padding: 5px 15%;
+}
 .logo{
     width: 160px;
     margin-right: 45px;
@@ -208,8 +211,20 @@ nav{
      width: 28px;
      margin: 0 15px;
 }
+nav.nav-profile .nav-left ul li img{
+     margin: 0 5px;
+}
 .nav-user-icon img{
     width: 40px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.my-profile-img{
+    width: 40px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -359,7 +374,7 @@ nav{
     font-size: 10px;
     padding: 4px 0;
 }
-.sidebar-ads{
+.sidebar-ads-ex{
     width: 100%;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -901,6 +916,11 @@ nav{
     }
     nav{
         flex-wrap: wrap;
+        padding: 20px 7%;
+
+    }
+    nav.nav-profile{
+        padding: 5px 7%;
     }
     .search-box{
         display: none;
@@ -915,6 +935,8 @@ nav{
     }
     .nav-user-icon img {
         width: 30px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
     }
     .nav-user-icon{
         margin-left: 0;

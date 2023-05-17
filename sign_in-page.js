@@ -66,7 +66,7 @@ const signup = (e)=>{
     event.preventDefault()
     //------- Getting recent values --------
     const first_name = f_name_in.value
-    const last_name = l_name_in.value
+    const last_name = l_name_in.value.toUpperCase()
     const email = email_up_in.value
     const pass = pass_up_in.value
     const birthdate = birthdate_in.value
@@ -76,8 +76,9 @@ const signup = (e)=>{
     
     index++;
     let myInfo = {
-        First_name: first_name,
+        First_name: first_name.charAt(0).toUpperCase() + first_name.slice(1),
         Last_name: last_name,
+        Full_name: first_name + ' ' + last_name,
         Email: email,
         Password: pass,
         Birthdate: birthdate,

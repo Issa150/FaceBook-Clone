@@ -28,18 +28,29 @@ else if(localStorage.getItem("theme") == "dark"){
 }
 // --------------------------------------------
 // -----reading the sesion storage to render the user img and username---
-//  این بخش رو خوب بررسی کن هنوز انحام ندادی//////
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    // Check if user data is saved in sessionStorage
+    // Checking if user data is saved in sessionStorage
     var userData = sessionStorage.getItem("my infos =>");
     if (userData) {
       userData = JSON.parse(userData);
-      // Set the profile image and username
-      var profileImg = document.getElementById("profile-img");
-      profileImg.src = userData.profileImgUrl;
-      var username = document.getElementById("username");
-      username.innerHTML = userData.username;
+      // Setting the profile image and username
+      var profileImgs = document.querySelectorAll(".my-profile-img");
+      var usernames = document.querySelectorAll(".my-username");
+      
+      console.log('Trying to go through Storage...')
+
+    console.log('Trying to go through Storage...');
+
+    profileImgs.forEach(function(item) {
+      item.src = userData[0].Profile_image;
+      console.log('Images are applied!');
+    });
+
+    usernames.forEach(function(item) {
+      item.innerHTML = userData[0].Full_name;
+      console.log('Names are applied!');
+    });
     }
   });
 // ///////////////////////////////////////:::::::
@@ -206,7 +217,7 @@ liky.forEach((span)=>{
 // --------------------------------------------
 // //////////////////////////////////////////:
 
-// -------- Close Section------------
+// -------- Close Section------------------------------------------------
 
 const btn_close_sec = document.querySelector('.cntr_conversation .sidebar-title p')
 const body_conv = document.querySelector('.conv_body')
@@ -214,12 +225,28 @@ const body_conv = document.querySelector('.conv_body')
 btn_close_sec.onclick = ()=>{
     body_conv.classList.toggle('conv_body_closed')
 }
+//////////***************************************** */
+
+// const btn_hide = document.querySelectorAll('.btn_hide')
+
+// btn_hide.forEach(item =>{
+//     btn_hide.addEventListener('click',(e)=>{
+//         e.target.parentElement.nextElementSibling.classList.toggle('conv_body_closed')
+
+//     })
+// })
+
+
+
+
+
+
 // --------------------------------------------
 // //////////////////////////////////////////:
 
 // -------- Seach Friends------------
 
-const input_friend_search = document.querySelector('.sidebar-title div input')
+const input_friend_search = document.querySelector('#searchFriend')
 const items = document.querySelectorAll('.conv_body .online-list p')
 input_friend_search.addEventListener('input', filterItems)
 
@@ -230,10 +257,8 @@ function filterItems(){
         const itemText = item.textContent.toLocaleLowerCase()
         if(itemText.includes(inputV)){
             item.parentElement.style.display = ''
-            // item.parentElement.classList.add('')
         }else{ 
             item.parentElement.style.display = 'none'
-            // item.parentElement.classList.add('online-list_hide')
         }
     })
 }
